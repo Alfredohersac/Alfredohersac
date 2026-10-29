@@ -76,7 +76,24 @@
 ## 🚀 My Projects
 
 <!-- PROJECTS:START -->
-<p align="center">No featured projects yet. Add the <code>featured</code> topic to a public repository.</p>
+<div align="center">
+<table>
+<tr>
+<td width="50%" valign="top">
+<h3><a href="https://github.com/Alfredohersac/gune-bir-sinaq-test">gune-bir-sinaq-test</a></h3>
+<p>A test deployment of the “Günə Bir Sınaq” exam preparation platform for physics students. Includes student login, practice exams, results, and an admin panel.</p>
+<p><strong>Language:</strong> HTML</p>
+<p><a href="https://github.com/Alfredohersac/gune-bir-sinaq-test">View Project →</a></p>
+</td>
+<td width="50%" valign="top">
+<h3><a href="https://github.com/Alfredohersac/genetic-inheritance-simulator">genetic-inheritance-simulator</a></h3>
+<p>Interactive web app that simulates Mendelian inheritance (blood type, Rh factor, eye &amp; hair color) between parents and visualizes possible offspring traits with probabilities.</p>
+<p><strong>Language:</strong> HTML</p>
+<p><a href="https://github.com/Alfredohersac/genetic-inheritance-simulator">View Project →</a></p>
+</td>
+</tr>
+</table>
+</div>
 <!-- PROJECTS:END -->
 
 <div align="center">
