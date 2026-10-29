@@ -1,0 +1,140 @@
+
+name: Update Featured Projects
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-projects:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Update featured projects
+        env:
+          GITHUB_USERNAME: Alfredohersac
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+          from html import escape
+          from pathlib import Path
+
+          username = os.environ["GITHUB_USERNAME"]
+          readme = Path("README.md")
+
+          start = "<!-- PROJECTS:START -->"
+          end = "<!-- PROJECTS:END -->"
+
+          content = readme.read_text(encoding="utf-8")
+
+          if start not in content or end not in content:
+              raise SystemExit("Project markers not found in README.md")
+
+          url = (
+              f"https://api.github.com/users/"
+              f"{username}/repos?type=owner&sort=updated&per_page=100"
+          )
+
+          request = urllib.request.Request(
+              url,
+              headers={
+                  "Accept": "application/vnd.github+json",
+                  "User-Agent": "Alfredo-Featured-Projects"
+              }
+          )
+
+          with urllib.request.urlopen(request, timeout=30) as response:
+              repositories = json.load(response)
+
+          projects = [
+              repo for repo in repositories
+              if not repo.get("private", True)
+              and not repo.get("fork", False)
+              and "featured" in repo.get("topics", [])
+              and repo.get("name", "").lower() != username.lower()
+          ]
+
+          projects.sort(
+              key=lambda repo: repo.get("pushed_at") or "",
+              reverse=True
+          )
+
+          cards = []
+
+          for repo in projects:
+              name = escape(repo["name"])
+              description = escape(
+                  repo.get("description") or "No description provided yet."
+              )
+              language = escape(repo.get("language") or "Multiple technologies")
+              link = escape(repo["html_url"], quote=True)
+
+              cards.append(
+                  '<td width="50%" valign="top">\n'
+                  f'<h3><a href="{link}">{name}</a></h3>\n'
+                  f'<p>{description}</p>\n'
+                  f'<p><strong>Language:</strong> {language}</p>\n'
+                  f'<p><a href="{link}">View Project →</a></p>\n'
+                  '</td>'
+              )
+
+          if cards:
+              rows = []
+              for index in range(0, len(cards), 2):
+                  pair = cards[index:index + 2]
+                  if len(pair) == 1:
+                      pair.append("<td width=\"50%\"></td>")
+                  rows.append("<tr>\n" + "\n".join(pair) + "\n</tr>")
+
+              section = (
+                  '<div align="center">\n'
+                  '<table>\n'
+                  + "\n".join(rows)
+                  + '\n</table>\n'
+                  '</div>'
+              )
+          else:
+              section = (
+                  '<p align="center">'
+                  'No featured projects yet. Add the '
+                  '<code>featured</code> topic to a public repository.'
+                  '</p>'
+              )
+
+          updated = (
+              content.split(start, 1)[0]
+              + start + "\n"
+              + section + "\n"
+              + end
+              + content.split(end, 1)[1]
+          )
+
+          readme.write_text(updated, encoding="utf-8")
+          print(f"Found {len(projects)} featured projects.")
+          PY
+
+      - name: Commit README changes
+        run: |
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "README is already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update featured projects"
+          git push
