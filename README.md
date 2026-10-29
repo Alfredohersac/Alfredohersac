@@ -61,15 +61,17 @@
 
 ---
 
+
 ## 📊 GitHub Statistics
 
 <div align="center">
 
-  <img height="180" src="https://github-readme-stats.vercel.app/api?username=Alfredohersac&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9&rank_icon=github" alt="GitHub statistics"/>
+  <img height="180" src="https://github-stats-extended.vercel.app/api?username=Alfredohersac&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9&rank_icon=github" alt="GitHub statistics"/>
 
-  <img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Alfredohersac&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&langs_count=8" alt="Top languages"/>
+  <img height="180" src="https://github-stats-extended.vercel.app/api/top-langs/?username=Alfredohersac&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&langs_count=8" alt="Top programming languages"/>
 
 </div>
+
 
 ---
 
