@@ -89,34 +89,6 @@
 
 ---
 
-## 🌐 Connect With Me
-
-<div align="center">
-
-  <a href="https://github.com/Alfredohersac">
-    <img src="https://skillicons.dev/icons?i=github&theme=dark" width="42" alt="GitHub"/>
-  </a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://www.instagram.com/alfredo_maganver07/">
-    <img src="https://skillicons.dev/icons?i=instagram&theme=dark" width="42" alt="Instagram"/>
-  </a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/mahammad-kocharli-3b48572a1/">
-    <img src="https://skillicons.dev/icons?i=linkedin&theme=dark" width="42" alt="LinkedIn"/>
-  </a>
-
-  <br/><br/>
-
-  <a href="https://github.com/Alfredohersac">Alfredohersac</a>
-  &nbsp; • &nbsp;
-  <a href="https://www.instagram.com/alfredo_maganver07/">@alfredo_maganver07</a>
-  &nbsp; • &nbsp;
-  <a href="https://www.linkedin.com/in/mahammad-kocharli-3b48572a1/">Mahammad Kocharli</a>
-
-</div>
-
----
-
 <div align="center">
 
   <h3>💙 Thanks for visiting my profile!</h3>
