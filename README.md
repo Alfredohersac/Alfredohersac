@@ -76,7 +76,7 @@
 ## 🚀 My Projects
 
 <!-- PROJECTS:START -->
-<p align="center">✨ Featured projects will appear here automatically.</p>
+<p align="center">No featured projects yet. Add the <code>featured</code> topic to a public repository.</p>
 <!-- PROJECTS:END -->
 
 <div align="center">
